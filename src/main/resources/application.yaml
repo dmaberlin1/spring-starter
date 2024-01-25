@@ -15,3 +15,12 @@ db:
     - size: 3
       timeout: 2
 
+logging:
+  file:
+    name: dmadev.log
+    path: /
+  level:
+    root: warn
+    sql: warn
+    com.dmadev.spring.database.pool.ConnectionPool: info
+
