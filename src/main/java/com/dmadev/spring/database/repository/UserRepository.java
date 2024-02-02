@@ -1,11 +1,14 @@
-package com.dmadev.spring.repository;
+package com.dmadev.spring.database.repository;
 
 import com.dmadev.spring.database.pool.ConnectionPool;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @RequiredArgsConstructor
 public class UserRepository {
 

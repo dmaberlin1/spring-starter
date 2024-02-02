@@ -4,19 +4,13 @@ import lombok.Getter;
 
 import java.util.EventObject;
 
+@Getter
 public class EntityEvent extends EventObject {
 
-
-    @Getter
     private final AccessType accessType;
 
-    /**
-     * Constructs a prototypical Event.
-     *
-     * @param source the object on which the Event initially occurred
-     * @throws IllegalArgumentException if source is null
-     */
-    public EntityEvent(Object source) {
-        super(source);
+    public EntityEvent(Object entity, AccessType accessType) {
+        super(entity);
+        this.accessType = accessType;
     }
 }

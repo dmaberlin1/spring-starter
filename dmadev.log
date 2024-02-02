@@ -1,0 +1,4 @@
+2024-02-02T16:27:30.870+02:00  INFO 13682 --- [Test worker] c.d.spring.database.pool.ConnectionPool  : Init connection pool
+2024-02-02T16:27:30.879+02:00  WARN 13682 --- [Test worker] c.d.s.d.repository.CompanyRepository     : init company repository
+2024-02-02T16:27:30.884+02:00  WARN 13682 --- [Test worker] c.d.s.d.repository.CompanyRepository     : init company repository
+2024-02-02T16:27:31.862+02:00  INFO 13682 --- [SpringApplicationShutdownHook] c.d.spring.database.pool.ConnectionPool  : clean connection pool

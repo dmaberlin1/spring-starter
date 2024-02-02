@@ -1,4 +1,5 @@
 package com.dmadev.spring.listener.entity;
 
-public class AccessType {
+public enum AccessType {
+    CREATE, UPDATE, READ, DELETE
 }
