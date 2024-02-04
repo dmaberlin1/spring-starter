@@ -8,40 +8,31 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 
-@Slf4j
-@Repository
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+//@Slf4j
+//@Repository
+//@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 //@Transaction
 //@Auditing
-@RequiredArgsConstructor
-public class CompanyRepository  implements CrudRepository<Long, Company>{
+//@RequiredArgsConstructor
+//  implements org.springframework.data.repository.Repository<Company,Integer>
+public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
-    private final ConnectionPool pool1;
-    private final List<ConnectionPool> pools;
-    @Value("${db.pool.size}")
-    private final Integer poolSize;
+    //Optional,Entity,Future
+    Optional<Company> findByName(String name);
 
-    @PostConstruct
-    private void init() {
-        log.warn("init company repository");
-    }
-
-
-    @Override
-    public Optional<Company> findById(Long id) {
-        System.out.println("findById method...");
-        return Optional.of(new Company(id));
-    }
-
-    @Override
-    public void delete(Company entity) {
-        System.out.println("delete method...");
-    }
+    //Collection,Stream(batch size,close)
+    List<Company> findAllByNameContainingIgnoreCase(String fragment);
 
 }
+
+
+

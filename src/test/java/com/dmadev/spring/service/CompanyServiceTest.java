@@ -1,7 +1,7 @@
 package com.dmadev.spring.service;
 
 import com.dmadev.spring.database.entity.Company;
-import com.dmadev.spring.database.repository.CrudRepository;
+import com.dmadev.spring.database.repository.CompanyRepository;
 import com.dmadev.spring.dto.CompanyReadDto;
 import com.dmadev.spring.listener.entity.EntityEvent;
 
@@ -9,17 +9,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 
 @ExtendWith(MockitoExtension.class)
 class CompanyServiceTest {
@@ -27,9 +26,9 @@ class CompanyServiceTest {
     //when
     //then
 
-    private static final Long COMPANY_ID=1L;
+    private static final Integer COMPANY_ID=1;
     @Mock
-    private  CrudRepository<Long, Company> companyRepository;
+    private CompanyRepository companyRepository;
     @Mock
     private  UserService userService;
     @Mock
@@ -40,7 +39,7 @@ class CompanyServiceTest {
     @Test
     void findById() {
         //given
-        doReturn(Optional.of(new Company(COMPANY_ID)))
+        doReturn(Optional.of(new Company(COMPANY_ID,null, Collections.emptyMap())))
                 .when(companyRepository).findById(COMPANY_ID);
         //when
         Optional<CompanyReadDto> actualResult = companyService.findById(COMPANY_ID);

@@ -1,4 +1,4 @@
 package com.dmadev.spring.dto;
 
-public record CompanyReadDto(Long id) {
+public record CompanyReadDto(Integer id) {
 }

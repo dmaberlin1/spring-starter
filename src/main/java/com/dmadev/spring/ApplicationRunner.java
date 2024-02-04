@@ -2,12 +2,11 @@ package com.dmadev.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
-//end in 41 lesson -test starter
-
 @SpringBootApplication
+@ConfigurationPropertiesScan
 public class ApplicationRunner {
 
     public static void main(String[] args) {

@@ -1,7 +1,10 @@
 package com.dmadev.spring.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import java.util.List;
 
+@ConfigurationProperties(prefix = "db")
 public class DatabaseProperties {
     private String    username;
     private String password;
