@@ -2,6 +2,7 @@ package com.dmadev.spring.intergration.database.repository;
 
 import com.dmadev.spring.database.entity.Company;
 import com.dmadev.spring.database.repository.CompanyRepository;
+import com.dmadev.spring.intergration.IntegrationTestBase;
 import com.dmadev.spring.intergration.annotation.IT;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RequiredArgsConstructor
 //@Rollback // после каждого метода чистить оставшиеся результаты теста
 //@Commit //убирает дефолт и делает выполнение транзакции после каждого теса
-class CompanyRepositoryTest {
+class CompanyRepositoryTest extends IntegrationTestBase {
 
     private static final Integer APPLE_ID=5;
     private final EntityManager entityManager;
