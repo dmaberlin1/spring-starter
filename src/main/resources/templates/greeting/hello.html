@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +9,13 @@
     <title>Hello</title>
 </head>
 <body>
-    <span style="font-weight: bold">Bye</span> page
+
+<p>
+    Hello
+    <span th:text="${userReadDto.username}">
+        Dummy text
+    </span>
+    !
+</p>
 </body>
 </html>
